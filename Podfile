@@ -4,6 +4,6 @@ target 'Shine' do
   use_frameworks!
 
   # Pods for Shine
-  pod 'SWXMLHash', '~> 4.6.0'
+  pod 'SWXMLHash', '4.9.0'
 
 end

@@ -19,7 +19,7 @@ fileprivate extension Shine {
 		static let CompletedFirstCheck = "Shine:CompletedFirstCheck"
 	}
 	
-	fileprivate var lastCheckLatestVersion: String? {
+	var lastCheckLatestVersion: String? {
 		get {
 			return UserDefaults.standard.string(forKey: UserDefaultKeys.LastCheckVersion)
 		}
@@ -28,7 +28,8 @@ fileprivate extension Shine {
 			UserDefaults.standard.synchronize()
 		}
 	}
-	fileprivate var lastCheckDate: Date {
+    
+	var lastCheckDate: Date {
 		get {
 			return UserDefaults.standard.object(forKey: UserDefaultKeys.LastCheckDate) as? Date ?? Date.distantPast
 		}
@@ -37,7 +38,8 @@ fileprivate extension Shine {
 			UserDefaults.standard.synchronize()
 		}
 	}
-	fileprivate var selectedRemindLaterDate: Date? {
+
+	var selectedRemindLaterDate: Date? {
 		get {
 			return UserDefaults.standard.object(forKey: UserDefaultKeys.UserRemindLaterDate) as? Date
 		}
@@ -46,7 +48,8 @@ fileprivate extension Shine {
 			UserDefaults.standard.synchronize()
 		}
 	}
-	fileprivate var lastCheckWasForcedUpdate: Bool {
+
+    var lastCheckWasForcedUpdate: Bool {
 		get {
 			return UserDefaults.standard.bool(forKey: UserDefaultKeys.LastCheckWasForcedUpdate)
 		}
@@ -55,7 +58,8 @@ fileprivate extension Shine {
 			UserDefaults.standard.synchronize()
 		}
 	}
-	fileprivate var completedFirstCheck: Bool {
+
+    var completedFirstCheck: Bool {
 		get {
 			return UserDefaults.standard.bool(forKey: UserDefaultKeys.CompletedFirstCheck)
 		}
@@ -90,7 +94,7 @@ fileprivate extension Shine {
 		defaultConfig.validate()
 		self.config = defaultConfig
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(Shine.appDidResume), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Shine.appDidResume), name: UIApplication.didBecomeActiveNotification, object: nil)
 	}
 	
 	
